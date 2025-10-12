@@ -26,6 +26,10 @@ const STYLES = {
 const ProgressBar = ({ value, size }) => {
   const styles = STYLES[size]
 
+  if (!styles) {
+    throw new Error(`Unknown size passed to ProgressBar: ${size}`)
+  }
+
   return (
     <Wrapper
       role='progressbar'
