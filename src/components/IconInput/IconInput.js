@@ -22,6 +22,10 @@ const STYLES = {
 const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
    const styles = STYLES[size]
 
+   if (!styles) {
+      throw new Error(`Unknown size passed to IconInput: ${size}`)
+   }
+
    return (
       <Form>
          <IconWrapper>
